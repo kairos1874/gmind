@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import styles from './styles.module.css'
 import G6 from '@antv/g6'
+// import Gmind from "./core/gmind";
 
 // interface Props {
 //   text: string
@@ -12,13 +13,13 @@ const data: any = {
     {
       id: 'node1', // String，该节点存在则必须，节点的唯一标识
       x: 100, // Number，可选，节点位置的 x 值
-      y: 200, // Number，可选，节点位置的 y 值
+      y: 200 // Number，可选，节点位置的 y 值
     },
     {
       id: 'node2', // String，该节点存在则必须，节点的唯一标识
       x: 300, // Number，可选，节点位置的 x 值
-      y: 200, // Number，可选，节点位置的 y 值
-    },
+      y: 200 // Number，可选，节点位置的 y 值
+    }
   ],
   // 边集
   edges: [
@@ -43,5 +44,11 @@ export const Designer = () => {
     graph.data(data)
     graph.render()
   }, [])
-  return <div className={styles['gmind-designer']} id="gmind-designer" ref={designerRef} />
+  return (
+    <div
+      className={styles['gmind-designer']}
+      id='gmind-designer'
+      ref={designerRef}
+    />
+  )
 }
