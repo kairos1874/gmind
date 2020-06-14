@@ -1,9 +1,7 @@
 /* add css module styles here (optional) */
 
-.test {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
-  text-align: center;
+.gmind-designer {
+  width: 500px;
+  height: 500px;
+  border: 2px solid #000000;
 }

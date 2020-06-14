@@ -1,10 +1,47 @@
-import * as React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './styles.module.css'
+import G6 from '@antv/g6'
 
-interface Props {
-  text: string
+// interface Props {
+//   text: string
+// }
+
+const data: any = {
+  // 点集
+  nodes: [
+    {
+      id: 'node1', // String，该节点存在则必须，节点的唯一标识
+      x: 100, // Number，可选，节点位置的 x 值
+      y: 200, // Number，可选，节点位置的 y 值
+    },
+    {
+      id: 'node2', // String，该节点存在则必须，节点的唯一标识
+      x: 300, // Number，可选，节点位置的 x 值
+      y: 200, // Number，可选，节点位置的 y 值
+    },
+  ],
+  // 边集
+  edges: [
+    {
+      source: 'node1', // String，必须，起始点 id
+      target: 'node2' // String，必须，目标点 id
+    }
+  ]
 }
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export const Designer = () => {
+  const designerRef = useRef(null)
+  // const designerDom = designerRef.current
+
+  useEffect(() => {
+    const graph = new G6.Graph({
+      container: 'gmind-designer',
+      width: 500,
+      height: 500
+    })
+
+    graph.data(data)
+    graph.render()
+  }, [])
+  return <div className={styles['gmind-designer']} id="gmind-designer" ref={designerRef} />
 }
