@@ -14,8 +14,8 @@ export const Designer = () => {
   useEffect(() => {
     const graph = new Gmind({
       container: 'gmind-designer',
-      width: 800,
-      height: 400,
+      width: 1600,
+      height: 700,
       modes: {
         default: ['drag-canvas', 'zoom-canvas']
       },
@@ -61,8 +61,8 @@ export const Designer = () => {
     graph.render()
     graph.fitView();
     graph.zoomTo(1, {
-      x: 800 / 2,
-      y: 400 / 2
+      x: 1600 / 2,
+      y: 700 / 2
     })
   }, [])
   return (
