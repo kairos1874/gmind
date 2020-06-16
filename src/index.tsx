@@ -1,48 +1,69 @@
 import React, { useEffect, useRef } from 'react'
 import styles from './styles.module.css'
-import G6 from '@antv/g6'
-// import Gmind from "./core/gmind";
+import Gmind from './core/gmind'
+import baseData from './mock/baseData'
 
 // interface Props {
-//   text: string
+//  text: string
 // }
-
-const data: any = {
-  // 点集
-  nodes: [
-    {
-      id: 'node1', // String，该节点存在则必须，节点的唯一标识
-      x: 100, // Number，可选，节点位置的 x 值
-      y: 200 // Number，可选，节点位置的 y 值
-    },
-    {
-      id: 'node2', // String，该节点存在则必须，节点的唯一标识
-      x: 300, // Number，可选，节点位置的 x 值
-      y: 200 // Number，可选，节点位置的 y 值
-    }
-  ],
-  // 边集
-  edges: [
-    {
-      source: 'node1', // String，必须，起始点 id
-      target: 'node2' // String，必须，目标点 id
-    }
-  ]
-}
 
 export const Designer = () => {
   const designerRef = useRef(null)
   // const designerDom = designerRef.current
 
   useEffect(() => {
-    const graph = new G6.Graph({
+    const graph = new Gmind({
       container: 'gmind-designer',
-      width: 500,
-      height: 500
+      width: 800,
+      height: 400,
+      modes: {
+        default: ['drag-canvas', 'zoom-canvas']
+      },
+      defaultNode: {
+        size: 26,
+        anchorPoints: [
+          [0, 0.5],
+          [1, 0.5]
+        ],
+        style: {
+          fill: '#C6E5FF',
+          stroke: '#5B8FF9'
+        }
+      },
+      defaultEdge: {
+        type: 'cubic-horizontal',
+        style: {
+          stroke: '#A3B1BF'
+        }
+      },
+      layout: {
+        type: 'compactBox',
+        direction: 'LR',
+        getId: function getId(d: any) {
+          return d.id
+        },
+        getHeight: function getHeight() {
+          return 16
+        },
+        getWidth: function getWidth() {
+          return 16
+        },
+        getVGap: function getVGap() {
+          return 10
+        },
+        getHGap: function getHGap() {
+          return 100
+        }
+      }
     })
 
-    graph.data(data)
+    graph.data(baseData)
     graph.render()
+    graph.fitView();
+    graph.zoomTo(1, {
+      x: 800 / 2,
+      y: 400 / 2
+    })
   }, [])
   return (
     <div
