@@ -3,6 +3,8 @@ import styles from './styles.module.css'
 import Gmind from './core/gmind'
 import baseData from './mock/baseData'
 
+import './shape/node'
+
 // interface Props {
 //  text: string
 // }
@@ -20,15 +22,7 @@ export const Designer = () => {
         default: ['drag-canvas', 'zoom-canvas']
       },
       defaultNode: {
-        size: 26,
-        anchorPoints: [
-          [0, 0.5],
-          [1, 0.5]
-        ],
-        style: {
-          fill: '#C6E5FF',
-          stroke: '#5B8FF9'
-        }
+        type: 'base-node'
       },
       defaultEdge: {
         type: 'cubic-horizontal',
@@ -43,7 +37,7 @@ export const Designer = () => {
           return d.id
         },
         getHeight: function getHeight() {
-          return 16
+          return 40
         },
         getWidth: function getWidth() {
           return 16

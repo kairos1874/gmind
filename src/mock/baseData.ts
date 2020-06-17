@@ -1,56 +1,65 @@
-
+import { v4 as uuidv4 } from 'uuid'
 
 export default {
-  id: '分析图谱',
+  id: uuidv4(),
+  name: '分析图谱',
   children: [
     {
-      id: 'Classification',
-      children: [
-        { id: 'Logistic regression' },
-        { id: 'Linear discriminant analysis' },
-        { id: 'Rules' },
-        { id: 'Decision trees' },
-        { id: 'Naive Bayes' },
-        { id: 'K nearest neighbor' },
-        { id: 'Probabilistic neural network' },
-        { id: 'Support vector machine' }
-      ]
-    },
-    {
-      id: 'Consensus',
+      id: uuidv4(),
+      name: '行业管理',
       children: [
         {
-          id: 'Models diversity',
+          id: uuidv4(),
+          name: '金融业',
           children: [
-            { id: 'Different initializations' },
-            { id: 'Different parameter choices' },
-            { id: 'Different architectures' },
-            { id: 'Different modeling methods' },
-            { id: 'Different training sets' },
-            { id: 'Different feature sets' }
+            {
+              id: uuidv4(),
+              name: '资本市场服务'
+            },
+            {
+              id: uuidv4(),
+              name: '货币金融服务'
+            },
+            {
+              id: uuidv4(),
+              name: '资本市场服务'
+            }
           ]
         },
         {
-          id: 'Methods',
-          children: [
-            { id: 'Classifier selection' },
-            { id: 'Classifier fusion' }
-          ]
+          id: uuidv4(),
+          name: '批发和零售业'
         },
         {
-          id: 'Common',
-          children: [{ id: 'Bagging' }, { id: 'Boosting' }, { id: 'AdaBoost' }]
+          id: uuidv4(),
+          name: '制造业'
+        },
+        {
+          id: uuidv4(),
+          name: '建筑业'
+        },
+        {
+          id: uuidv4(),
+          name: '房地产业'
         }
       ]
     },
     {
-      id: 'Regression',
+      id: uuidv4(),
+      name: '事项管理',
       children: [
-        { id: 'Multiple linear regression' },
-        { id: 'Partial least squares' },
-        { id: 'Multi-layer feedforward neural network' },
-        { id: 'General regression neural network' },
-        { id: 'Support vector regression' }
+        {
+          id: uuidv4(),
+          name: '生产经营事项'
+        },
+        {
+          id: uuidv4(),
+          name: '跨境事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        }
       ]
     }
   ]

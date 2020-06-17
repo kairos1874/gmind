@@ -61,6 +61,8 @@
     "dist"
   ],
   "dependencies": {
-    "@antv/g6": "^3.5.4"
+    "@antv/g6": "^3.5.4",
+    "@types/uuid": "^8.0.0",
+    "uuid": "^8.1.0"
   }
 }
