@@ -14,7 +14,7 @@ export default {
           children: [
             {
               id: uuidv4(),
-              name: '资本市场服务'
+              name: '资本市场服务 abcdefghijklmnopqrstuvwxyz'
             },
             {
               id: uuidv4(),
@@ -41,6 +41,11 @@ export default {
         {
           id: uuidv4(),
           name: '房地产业'
+        },
+        {
+          id: uuidv4(),
+          name:
+            '这是一段超长的文本这是 一段超长 的文本 这是一段超长 ，的文本这是， 一段超长的文本这是一段超长的文本这是一段超长的文本这是一段超长的文本这是一段超长的文本'
         }
       ]
     },

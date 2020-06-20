@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import styles from './styles.module.css'
 import Gmind from './core/gmind'
 import baseData from './mock/baseData'
+import { v4 as uuidv4 } from 'uuid'
 
 import './shape/node'
 
@@ -22,7 +23,8 @@ export const Designer = () => {
         default: ['drag-canvas', 'zoom-canvas']
       },
       defaultNode: {
-        type: 'base-node'
+        type: 'base-node',
+        size: [200, 100]
       },
       defaultEdge: {
         type: 'cubic-horizontal',
@@ -32,21 +34,30 @@ export const Designer = () => {
       },
       layout: {
         type: 'compactBox',
-        direction: 'LR',
-        getId: function getId(d: any) {
-          return d.id
+        direction: 'LR', // H / V / LR / RL / TB / BT
+        // 指定节点 ID
+        getId: function getId() {
+          return uuidv4()
         },
+        // 指定节点高度
         getHeight: function getHeight() {
+          // debugger
           return 40
         },
+        // 指定节点宽度
         getWidth: function getWidth() {
-          return 16
+          // debugger
+          return 50
         },
+        // 指定节点之间的垂直间距
         getVGap: function getVGap() {
-          return 10
+          // debugger
+          return 0
         },
+        // 指定节点之间的水平间距
         getHGap: function getHGap() {
-          return 100
+          // debugger
+          return 130
         }
       }
     })

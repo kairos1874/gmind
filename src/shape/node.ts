@@ -1,4 +1,6 @@
 import G6 from '@antv/g6'
+// import { ellipsisString } from '../util/util'
+import getWrapString from "../util/getWrapString";
 
 G6.registerNode(
   'base-node',
@@ -39,7 +41,7 @@ G6.registerNode(
           textBaseline: 'bottom',
           x: 90,
           y: 22,
-          text: name,
+          text: getWrapString(name, { 'font-size': '14px', width: '180px' }),
           fontSize: 14,
           cursor: 'pointer',
           isNodeShape: true,
