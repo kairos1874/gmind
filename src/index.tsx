@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import styles from './styles.module.css'
 import Gmind from './core/gmind'
 import baseData from './mock/baseData'
-import { v4 as uuidv4 } from 'uuid'
+// import { v4 as uuidv4 } from 'uuid'
 
 import './shape/node'
 
@@ -36,11 +36,14 @@ export const Designer = () => {
         type: 'compactBox',
         direction: 'LR', // H / V / LR / RL / TB / BT
         // 指定节点 ID
-        getId: function getId() {
-          return uuidv4()
-        },
+        // getId: function getId() {
+        //   return uuidv4()
+        // },
         // 指定节点高度
-        getHeight: function getHeight() {
+        getHeight: function getHeight(d: { id: string }) {
+          if (d.id === '1234') {
+            return 250
+          }
           // debugger
           return 40
         },
@@ -50,7 +53,10 @@ export const Designer = () => {
           return 50
         },
         // 指定节点之间的垂直间距
-        getVGap: function getVGap() {
+        getVGap: function getVGap(d: { id: string }) {
+          if (d.id === '1234') {
+            return 120
+          }
           // debugger
           return 0
         },

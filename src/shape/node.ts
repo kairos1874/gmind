@@ -1,6 +1,6 @@
 import G6 from '@antv/g6'
 // import { ellipsisString } from '../util/util'
-import getWrapString from "../util/getWrapString";
+import getWrapString from '../util/getWrapString'
 
 G6.registerNode(
   'base-node',

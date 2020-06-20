@@ -9,8 +9,27 @@ export default {
       name: '行业管理',
       children: [
         {
-          id: uuidv4(),
-          name: '金融业',
+          id: '12',
+          name:
+            '这是一段超长的文本这是 一段超长 的文本 这是一段超长 ，的文本这是， 一段超长的文本这是一段超长的文本这是一段超长的文本这是一段超长的文本这是一段超长的文本',
+          children: [
+            {
+              id: uuidv4(),
+              name: '资本市场服务 abcdefghijklmnopqrstuvwxyz'
+            },
+            {
+              id: uuidv4(),
+              name: '货币金融服务'
+            },
+            {
+              id: uuidv4(),
+              name: '资本市场服务'
+            }
+          ]
+        },
+        {
+          id: '1234',
+          name: '批发和零售业',
           children: [
             {
               id: uuidv4(),
@@ -28,10 +47,6 @@ export default {
         },
         {
           id: uuidv4(),
-          name: '批发和零售业'
-        },
-        {
-          id: uuidv4(),
           name: '制造业'
         },
         {
@@ -43,7 +58,7 @@ export default {
           name: '房地产业'
         },
         {
-          id: uuidv4(),
+          id: '123',
           name:
             '这是一段超长的文本这是 一段超长 的文本 这是一段超长 ，的文本这是， 一段超长的文本这是一段超长的文本这是一段超长的文本这是一段超长的文本这是一段超长的文本'
         }
