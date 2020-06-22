@@ -22,17 +22,9 @@ function ellipsisString(str: string, limit: number = 10) {
   return str
 }
 
-// 文字换行
-// function autoWrap(wrapWidth: number = 200, text: string, fontSize: number = 14) {
-//
-// }
+// 替换空格
+function resetBlank(str: string) {
+  return str.replace(/\s+/g, ' ')
+}
 
-// function getTextWidth(text: string, font: string) {
-//   const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"))
-//   var context = canvas.getContext("2d");
-//   context.font = font;
-//   var metrics = context.measureText(text);
-//   return metrics.width;
-// }
-
-export { ellipsisString }
+export { ellipsisString, resetBlank }

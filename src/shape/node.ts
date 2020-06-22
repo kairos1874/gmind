@@ -1,6 +1,6 @@
 import G6 from '@antv/g6'
 // import { ellipsisString } from '../util/util'
-import getWrapString from '../util/getWrapString'
+// import getWrapString from '../util/getWrapString'
 
 G6.registerNode(
   'base-node',
@@ -14,8 +14,8 @@ G6.registerNode(
     },
     draw(cfg, group) {
       // @ts-ignore
-      const { name, nodeType } = cfg
-      console.log(name, nodeType)
+      const { styledName, nodeType } = cfg
+      console.log(nodeType)
 
       // @ts-ignore
       const keyShape = group.addShape('rect', {
@@ -37,11 +37,11 @@ G6.registerNode(
       // @ts-ignore
       group.addShape('text', {
         attrs: {
-          textAlign: 'center',
+          textAlign: 'left',
           textBaseline: 'bottom',
           x: 90,
           y: 22,
-          text: getWrapString(name, { 'font-size': '14px', width: '180px' }),
+          text: styledName.targetString,
           fontSize: 14,
           cursor: 'pointer',
           isNodeShape: true,

@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react'
 import styles from './styles.module.css'
 import Gmind from './core/gmind'
 import baseData from './mock/baseData'
-// import { v4 as uuidv4 } from 'uuid'
+import mapTree from './util/mapTree'
+import { v4 as uuidv4 } from 'uuid'
+import getWrapString from './util/getWrapString'
 
 import './shape/node'
 
@@ -33,7 +35,7 @@ export const Designer = () => {
         }
       },
       layout: {
-        type: 'compactBox',
+        type: 'mindmap',
         direction: 'LR', // H / V / LR / RL / TB / BT
         // 指定节点 ID
         // getId: function getId() {
@@ -41,8 +43,8 @@ export const Designer = () => {
         // },
         // 指定节点高度
         getHeight: function getHeight(d: { id: string }) {
-          if (d.id === '1234') {
-            return 250
+          if (d.id === '11' || d.id === '12' || d.id === '13') {
+            return 40
           }
           // debugger
           return 40
@@ -55,7 +57,7 @@ export const Designer = () => {
         // 指定节点之间的垂直间距
         getVGap: function getVGap(d: { id: string }) {
           if (d.id === '1234') {
-            return 120
+            return 0
           }
           // debugger
           return 0
@@ -68,9 +70,26 @@ export const Designer = () => {
       }
     })
 
-    graph.data(baseData)
+    const targetData = mapTree(baseData, function (item: any) {
+      return {
+        ...item,
+        uuid: uuidv4(),
+        styledName: getWrapString(
+          item.name,
+          {
+            'font-size': '14px',
+            width: '180px'
+          },
+          true
+        )
+      }
+    })
+
+    console.log(targetData)
+
+    graph.data(targetData)
     graph.render()
-    graph.fitView();
+    graph.fitView()
     graph.zoomTo(1, {
       x: 1600 / 2,
       y: 700 / 2

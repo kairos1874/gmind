@@ -1,3 +1,7 @@
+/*
+ * 一个自动换行的方法，用于处理节点文本的换行
+ * */
+
 function isCJKCharacter(ch: string) {
   /*
   参考网站：https://blog.csdn.net/iteye_4476/article/details/81652883，来源Unicode官网
@@ -40,7 +44,7 @@ function isCJKCharacter(ch: string) {
   25. [\ufe10-\ufe1f] => 中文竖排标点
   26. [\ufe30-\ufe4f] => CJK兼容符号(竖排变体、下划线、顿号)
   */
-  var cjk = {
+  const cjk = {
     NO1Unihan: [
       '\\u3400-\\u3db5',
       '\\u4e00-\\u9fa5',
@@ -90,7 +94,7 @@ function isCJKCharacter(ch: string) {
   return null
 }
 
-function getWrapString(str: string, styles: any) {
+function getWrapString(str: string, styles: any, getFullObject: boolean = false) {
   // 传入的str需是能被html识别的字符串，暂不支持富文本，函数返回值也是字符串
   if (!str || str.length <= 0) return ''
 
@@ -109,6 +113,8 @@ function getWrapString(str: string, styles: any) {
     $div.style[key] = styleObj[key]
   }
 
+  document.body.append($div)
+
   $div.innerText = str
 
   // 1.1获取初步处理的字符串，即已完成空白符替换，但还未计算溢出换行。
@@ -121,8 +127,6 @@ function getWrapString(str: string, styles: any) {
   const isBreakWord =
     ($div.style.wordWrap + $div.style.wordBreak).indexOf('break') >= 0
   const lineHeight = parseFloat($div.style.fontSize) // 记录行高判断是否产生换行
-
-  document.body.append($div)
 
   // 下面将上面初步处理的字符串进行字符分割。
   const words = []
@@ -143,7 +147,7 @@ function getWrapString(str: string, styles: any) {
   let oneline = [] // oneline是一维数组，保存一行中的单词
   // 3.遍历求解换行位置，即尝试向行容器中添加字符。
   for (let i = 0; i < words.length; i++) {
-    var word = words[i]
+    const word = words[i]
     if (word === '\n') {
       // 如果当前单词是换行符
       // 则将之前的内容存为1行，并追加保存一个空行
@@ -179,7 +183,7 @@ function getWrapString(str: string, styles: any) {
   // 4.收尾工作
   // 4.1将二维数组还原为字符串
   let string = ''
-  for (var i = 0; i < lines.length; i++) {
+  for (let i = 0; i < lines.length; i++) {
     string += lines[i].join('') + '\n'
   }
   string = string.substring(0, string.length - 1)
@@ -187,12 +191,16 @@ function getWrapString(str: string, styles: any) {
   $div.remove()
   // 返回计算结果
 
+  if (getFullObject) {
+    return {
+      targetString: string,
+      lines,
+      fontSize: lineHeight
+    }
+  }
+
   return string
 }
 
-function resetBlank(str: string) {
-  return str.replace(/\s+/g, ' ')
-}
-
-export { isCJKCharacter, resetBlank }
+export { isCJKCharacter }
 export default getWrapString
