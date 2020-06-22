@@ -94,7 +94,7 @@ function isCJKCharacter(ch: string) {
   return null
 }
 
-function getWrapString(str: string, styles: any, getFullObject: boolean = false) {
+function getWrapString(str: string, styles: any) {
   // 传入的str需是能被html识别的字符串，暂不支持富文本，函数返回值也是字符串
   if (!str || str.length <= 0) return ''
 
@@ -191,15 +191,13 @@ function getWrapString(str: string, styles: any, getFullObject: boolean = false)
   $div.remove()
   // 返回计算结果
 
-  if (getFullObject) {
-    return {
-      targetString: string,
-      lines,
-      fontSize: lineHeight
-    }
+  return {
+    wrapString: string,
+    lines,
+    fontSize: lineHeight
   }
 
-  return string
+  // return string
 }
 
 export { isCJKCharacter }

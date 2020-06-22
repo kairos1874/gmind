@@ -42,11 +42,10 @@ export const Designer = () => {
         //   return uuidv4()
         // },
         // 指定节点高度
-        getHeight: function getHeight(d: { id: string }) {
-          if (d.id === '11' || d.id === '12' || d.id === '13') {
-            return 40
+        getHeight: function getHeight(d: { lines: any[] }) {
+          if (d.lines.length > 0) {
+            return 40 + (d.lines.length - 1) * 16
           }
-          // debugger
           return 40
         },
         // 指定节点宽度
@@ -55,10 +54,7 @@ export const Designer = () => {
           return 50
         },
         // 指定节点之间的垂直间距
-        getVGap: function getVGap(d: { id: string }) {
-          if (d.id === '1234') {
-            return 0
-          }
+        getVGap: function getVGap() {
           // debugger
           return 0
         },
@@ -71,17 +67,16 @@ export const Designer = () => {
     })
 
     const targetData = mapTree(baseData, function (item: any) {
+      // @ts-ignore
+      // @ts-ignore
       return {
         ...item,
         uuid: uuidv4(),
-        styledName: getWrapString(
-          item.name,
-          {
-            'font-size': '14px',
-            width: '180px'
-          },
-          true
-        )
+        ...getWrapString(item.name, {
+          'font-size': '14px',
+          width: '160px',
+          'word-wrap': 'break-word'
+        })
       }
     })
 

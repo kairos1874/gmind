@@ -14,7 +14,8 @@ G6.registerNode(
     },
     draw(cfg, group) {
       // @ts-ignore
-      const { styledName, nodeType } = cfg
+      const { nodeType, wrapString, lines } = cfg
+      debugger
       console.log(nodeType)
 
       // @ts-ignore
@@ -30,7 +31,7 @@ G6.registerNode(
           cursor: 'pointer',
           stroke: '#fd6d5a',
           width: 180,
-          height: 30
+          height: 30 + (lines.length - 1) * 16
         }
       })
 
@@ -38,10 +39,10 @@ G6.registerNode(
       group.addShape('text', {
         attrs: {
           textAlign: 'left',
-          textBaseline: 'bottom',
-          x: 90,
-          y: 22,
-          text: styledName.targetString,
+          textBaseline: 'top',
+          x: 8,
+          y: 8,
+          text: wrapString,
           fontSize: 14,
           cursor: 'pointer',
           isNodeShape: true,

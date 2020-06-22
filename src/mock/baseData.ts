@@ -34,7 +34,7 @@ export default {
           children: [
             {
               id: uuidv4(),
-              name: '资本市场服务 abcdefghijklmnopqrstuvwxyz'
+              name: '资本市场服务 abcdefghijklmnopqrstuvwxyzfajfjajfajfjajfj'
             },
             {
               id: uuidv4(),
