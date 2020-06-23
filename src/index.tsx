@@ -6,11 +6,8 @@ import mapTree from './util/mapTree'
 import { v4 as uuidv4 } from 'uuid'
 import getWrapString from './util/getWrapString'
 
+import './behavior/clickSelected'
 import './shape/node'
-
-// interface Props {
-//  text: string
-// }
 
 export const Designer = () => {
   const designerRef = useRef(null)
@@ -22,7 +19,7 @@ export const Designer = () => {
       width: 1600,
       height: 700,
       modes: {
-        default: ['drag-canvas', 'zoom-canvas']
+        default: ['drag-canvas', 'zoom-canvas', 'clickSelected']
       },
       defaultNode: {
         type: 'base-node',

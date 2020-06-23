@@ -15,7 +15,6 @@ G6.registerNode(
     draw(cfg, group) {
       // @ts-ignore
       const { nodeType, wrapString, lines } = cfg
-      debugger
       console.log(nodeType)
 
       // @ts-ignore
@@ -30,6 +29,7 @@ G6.registerNode(
           isNodeShape: true,
           cursor: 'pointer',
           stroke: '#fd6d5a',
+          fill: '#ffffff',
           width: 180,
           height: 30 + (lines.length - 1) * 16
         }
