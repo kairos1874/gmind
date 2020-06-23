@@ -56,7 +56,7 @@ export const Designer = () => {
         // 指定节点之间的垂直间距
         getVGap: function getVGap() {
           // debugger
-          return 0
+          return 5
         },
         // 指定节点之间的水平间距
         getHGap: function getHGap() {
@@ -67,8 +67,6 @@ export const Designer = () => {
     })
 
     const targetData = mapTree(baseData, function (item: any) {
-      // @ts-ignore
-      // @ts-ignore
       return {
         ...item,
         uuid: uuidv4(),
@@ -79,8 +77,6 @@ export const Designer = () => {
         })
       }
     })
-
-    console.log(targetData)
 
     graph.data(targetData)
     graph.render()
