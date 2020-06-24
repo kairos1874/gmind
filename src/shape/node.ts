@@ -53,6 +53,25 @@ G6.registerNode(
 
       return keyShape
     },
+    setState(name, value, item) {
+      // @ts-ignore
+      const group = item.getContainer()
+      if (name === 'selected') {
+        const rect = group.getChildByIndex(0)
+
+        if (value) {
+          // @ts-ignore
+          rect.originStroke = rect.attrs.stroke
+          rect.attr('stroke', '#22a4fb')
+        } else {
+          // @ts-ignore
+          if (rect.originStroke) {
+            // @ts-ignore
+            rect.attr('stroke', rect.originStroke)
+          }
+        }
+      }
+    },
     getAnchorPoints: function getAnchorPoints() {
       return [
         [0, 0.5],

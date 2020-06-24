@@ -1,25 +1,72 @@
 import React, { useEffect, useRef } from 'react'
-import styles from './styles.module.css'
 import Gmind from './core/gmind'
 import baseData from './mock/baseData'
 import mapTree from './util/mapTree'
 import { v4 as uuidv4 } from 'uuid'
 import getWrapString from './util/getWrapString'
 
+import styles from './styles.module.css'
+import './style/tooltip.css'
+
 import './behavior/clickSelected'
 import './shape/node'
+
+let graph: any = null
 
 export const Designer = () => {
   const designerRef = useRef(null)
   // const designerDom = designerRef.current
 
+  function bindEvents() {
+    graph.on('nodeselectchange', (e: any) => {
+      const {
+        selectedItems: { nodes }
+      } = e
+      console.log(nodes[0])
+      debugger
+    })
+  }
+
   useEffect(() => {
-    const graph = new Gmind({
+    // @ts-ignore
+
+    graph = new Gmind({
       container: 'gmind-designer',
       width: 1600,
       height: 700,
       modes: {
-        default: ['drag-canvas', 'zoom-canvas', 'clickSelected']
+        default: [
+          {
+            type: 'drag-canvas',
+            enableOptimize: true
+          },
+          'zoom-canvas',
+          'click-select',
+          // 框选
+          {
+            type: 'brush-select',
+            trigger: 'shift',
+            includeEdges: false,
+            // @ts-ignore
+            brushStyle: {
+              stroke: '#18a0fb',
+              fill: '#18a0fb',
+              fillOpacity: 0.2,
+              lineWidth: 0.3
+            }
+          },
+          // 展开收起
+          // {
+          //   type: 'collapse-expand',
+          //   trigger: 'click',
+          //   onChange: (item, collapsed) => {
+          //     // @ts-ignore
+          //     const data = item.get('model').data
+          //     data.collapsed = collapsed
+          //     return true
+          //   }
+          // }
+        ]
       },
       defaultNode: {
         type: 'base-node',
@@ -82,6 +129,8 @@ export const Designer = () => {
       x: 1600 / 2,
       y: 700 / 2
     })
+
+    bindEvents()
   }, [])
   return (
     <div
