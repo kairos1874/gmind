@@ -62,7 +62,9 @@
   ],
   "dependencies": {
     "@antv/g6": "^3.5.4",
+    "@types/lodash": "^4.14.157",
     "@types/uuid": "^8.0.0",
+    "lodash": "^4.17.15",
     "uuid": "^8.1.0"
   }
 }

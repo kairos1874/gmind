@@ -122,6 +122,9 @@ export const Designer = () => {
       }
     })
 
+    console.log(targetData)
+    debugger
+
     graph.data(targetData)
     graph.render()
     graph.fitView()
