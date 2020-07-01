@@ -82,6 +82,188 @@ export default {
           name: '投资事项'
         }
       ]
+    },
+    {
+      id: uuidv4(),
+      name: '事项管理',
+      children: [
+        {
+          id: uuidv4(),
+          name: '生产经营事项'
+        },
+        {
+          id: uuidv4(),
+          name: '跨境事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        }
+      ]
+    },
+    {
+      id: uuidv4(),
+      name: '事项管理',
+      children: [
+        {
+          id: uuidv4(),
+          name: '生产经营事项'
+        },
+        {
+          id: uuidv4(),
+          name: '跨境事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        }
+      ]
+    },
+    {
+      id: uuidv4(),
+      name: '事项管理',
+      children: [
+        {
+          id: uuidv4(),
+          name: '生产经营事项'
+        },
+        {
+          id: uuidv4(),
+          name: '跨境事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        }
+      ]
+    },
+    {
+      id: uuidv4(),
+      name: '事项管理',
+      children: [
+        {
+          id: uuidv4(),
+          name: '生产经营事项'
+        },
+        {
+          id: uuidv4(),
+          name: '跨境事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        }
+      ]
+    },
+    {
+      id: uuidv4(),
+      name: '事项管理',
+      children: [
+        {
+          id: uuidv4(),
+          name: '生产经营事项'
+        },
+        {
+          id: uuidv4(),
+          name: '跨境事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        }
+      ]
+    },
+    {
+      id: uuidv4(),
+      name: '事项管理',
+      children: [
+        {
+          id: uuidv4(),
+          name: '生产经营事项'
+        },
+        {
+          id: uuidv4(),
+          name: '跨境事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        }
+      ]
+    },
+    {
+      id: uuidv4(),
+      name: '事项管理',
+      children: [
+        {
+          id: uuidv4(),
+          name: '生产经营事项'
+        },
+        {
+          id: uuidv4(),
+          name: '跨境事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        }
+      ]
+    },
+    {
+      id: uuidv4(),
+      name: '事项管理',
+      children: [
+        {
+          id: uuidv4(),
+          name: '生产经营事项'
+        },
+        {
+          id: uuidv4(),
+          name: '跨境事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        }
+      ]
+    },
+    {
+      id: uuidv4(),
+      name: '事项管理',
+      children: [
+        {
+          id: uuidv4(),
+          name: '生产经营事项'
+        },
+        {
+          id: uuidv4(),
+          name: '跨境事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
+        }
+      ]
     }
   ]
 }

@@ -10,6 +10,7 @@ import './style/tooltip.css'
 
 import './behavior/clickSelected'
 import './shape/node'
+import './shape/edge'
 
 let graph: any = null
 
@@ -32,8 +33,8 @@ export const Designer = () => {
 
     graph = new Gmind({
       container: 'gmind-designer',
-      width: 1600,
-      height: 700,
+      width: 2500,
+      height: 1200,
       modes: {
         default: [
           {
@@ -54,7 +55,7 @@ export const Designer = () => {
               fillOpacity: 0.2,
               lineWidth: 0.3
             }
-          },
+          }
           // 展开收起
           // {
           //   type: 'collapse-expand',
@@ -73,7 +74,7 @@ export const Designer = () => {
         size: [200, 100]
       },
       defaultEdge: {
-        type: 'cubic-horizontal',
+        type: 'curveline',
         style: {
           stroke: '#A3B1BF'
         }
@@ -105,7 +106,7 @@ export const Designer = () => {
         // 指定节点之间的水平间距
         getHGap: function getHGap() {
           // debugger
-          return 130
+          return 100
         }
       }
     })
@@ -123,7 +124,6 @@ export const Designer = () => {
     })
 
     console.log(targetData)
-    debugger
 
     graph.data(targetData)
     graph.render()

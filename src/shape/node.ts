@@ -1,6 +1,7 @@
 import G6 from '@antv/g6'
 // import { ellipsisString } from '../util/util'
 // import getWrapString from '../util/getWrapString'
+import { colorPreset } from '../config/palette'
 
 G6.registerNode(
   'base-node',
@@ -14,7 +15,7 @@ G6.registerNode(
     },
     draw(cfg, group) {
       // @ts-ignore
-      const { nodeType, wrapString, lines } = cfg
+      const { nodeType, wrapString, lines, topicIndex } = cfg
       console.log(nodeType)
 
       // @ts-ignore
@@ -28,7 +29,7 @@ G6.registerNode(
           opacity: 1,
           isNodeShape: true,
           cursor: 'pointer',
-          stroke: '#fd6d5a',
+          stroke: colorPreset.get(topicIndex % 6),
           fill: '#ffffff',
           width: 180,
           height: 30 + (lines.length - 1) * 16
