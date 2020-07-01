@@ -262,6 +262,10 @@ export default {
         {
           id: uuidv4(),
           name: '投资事项'
+        },
+        {
+          id: uuidv4(),
+          name: '投资事项'
         }
       ]
     }

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Gmind from './core/gmind'
 import baseData from './mock/baseData'
+// import baseData from './mock/data'
 import mapTree from './util/mapTree'
 import { v4 as uuidv4 } from 'uuid'
 import getWrapString from './util/getWrapString'
@@ -114,7 +115,7 @@ export const Designer = () => {
     const targetData = mapTree(baseData, function (item: any) {
       return {
         ...item,
-        uuid: uuidv4(),
+        id: uuidv4(),
         ...getWrapString(item.name, {
           'font-size': '14px',
           width: '160px',

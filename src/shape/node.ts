@@ -59,7 +59,7 @@ G6.registerNode(
           attrs: {
             path: [
               ['M', 180, (30 + (lines.length - 1) * 16) / 2],
-              ['L', 191, (30 + (lines.length - 1) * 16) / 2]
+              ['L', 193, (30 + (lines.length - 1) * 16) / 2]
             ],
             stroke: colorPreset.get(topicIndex % 6),
             lineWidth: 2,

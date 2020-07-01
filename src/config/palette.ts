@@ -1,4 +1,3 @@
-
 const colorPreset = new Map([
   [-1, '#333536'],
   [0, '#FE6956'],
