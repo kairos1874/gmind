@@ -105,7 +105,11 @@ export const Designer = () => {
           return 5
         },
         // 指定节点之间的水平间距
-        getHGap: function getHGap() {
+        getHGap: function getHGap(d: { depth: any }) {
+          const { depth } = d
+          if (depth === 0) {
+            return 140
+          }
           // debugger
           return 100
         }

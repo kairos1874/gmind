@@ -4,8 +4,10 @@ import { colorPreset } from '../config/palette'
 G6.registerEdge('curveline', {
   itemType: 'edge',
   draw: function draw(cfg: any, group) {
-    const { startPoint, endPoint, target } = cfg
+    const { startPoint, endPoint, source, target } = cfg
     const targetModel = target.getModel()
+    const sourceModel = source.getModel()
+    const { depth } = sourceModel
 
     const controlPoint1 = {
       x: startPoint.x + (endPoint.x - startPoint.x) / 3,
@@ -23,15 +25,7 @@ G6.registerEdge('curveline', {
     // ]
 
     const offset = endPoint.y - startPoint.y > 0 ? -2 : 2
-    // let offset: number
-    //
-    // if (endPoint.y - startPoint.y > 2) {
-    //   offset = -2
-    // } else if (endPoint.y - startPoint.y < -2) {
-    //   offset = 2
-    // } else {
-    //   offset = 0
-    // }
+    const lineStartWidth = depth === 0 ? 12 : 6
 
     if (endPoint.y - startPoint.y > 2 || endPoint.y - startPoint.y < -2) {
       // @ts-ignore
@@ -45,7 +39,7 @@ G6.registerEdge('curveline', {
               'Q',
               controlPoint1.x,
               controlPoint1.y + offset,
-              startPoint.x + 18,
+              startPoint.x + 10 + lineStartWidth,
               startPoint.y
             ],
             ['Z']

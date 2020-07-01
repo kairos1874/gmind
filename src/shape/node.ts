@@ -15,45 +15,82 @@ G6.registerNode(
     },
     draw(cfg, group) {
       // @ts-ignore
-      const { nodeType, wrapString, lines, topicIndex, children } = cfg
-      debugger
+      const { nodeType, wrapString, lines, topicIndex, children, depth } = cfg
       console.log(nodeType)
 
-      // @ts-ignore
-      const keyShape = group.addShape('rect', {
-        attrs: {
-          x: 0,
-          y: 0,
-          radius: 5,
-          lineWidth: 2,
-          fontSize: 12,
-          opacity: 1,
-          isNodeShape: true,
-          cursor: 'pointer',
-          stroke: colorPreset.get(topicIndex % 6),
-          fill: '#ffffff',
-          width: 180,
-          height: 30 + (lines.length - 1) * 16
-        }
-      })
+      let keyShape: any
+      if (depth === 0) {
+        // @ts-ignore
+        keyShape = group.addShape('rect', {
+          attrs: {
+            x: 0,
+            y: 0,
+            radius: 6,
+            lineWidth: 3,
+            fontSize: 14,
+            opacity: 1,
+            isNodeShape: true,
+            cursor: 'pointer',
+            stroke: colorPreset.get(topicIndex % 6),
+            fill: '#ffffff',
+            width: 240,
+            height: 60 + (lines.length - 1) * 16
+          }
+        })
 
-      // @ts-ignore
-      group.addShape('text', {
-        attrs: {
-          textAlign: 'left',
-          textBaseline: 'top',
-          x: 8,
-          y: 8,
-          text: wrapString,
-          fontSize: 14,
-          cursor: 'pointer',
-          isNodeShape: true,
-          textColor: '#000',
-          fill: '#000'
-        }
-      })
+        // @ts-ignore
+        group.addShape('text', {
+          attrs: {
+            textAlign: 'center',
+            textBaseline: 'top',
+            x: 120,
+            y: 18,
+            text: wrapString,
+            fontSize: 24,
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            isNodeShape: true,
+            textColor: colorPreset.get(topicIndex % 6),
+            fill: '#000'
+          }
+        })
+      } else {
+        // @ts-ignore
+        keyShape = group.addShape('rect', {
+          attrs: {
+            x: 0,
+            y: 0,
+            radius: 6,
+            lineWidth: 2,
+            fontSize: 12,
+            opacity: 1,
+            isNodeShape: true,
+            cursor: 'pointer',
+            stroke: colorPreset.get(topicIndex % 6),
+            fill: '#ffffff',
+            width: 180,
+            height: 30 + (lines.length - 1) * 16
+          }
+        })
 
-      if (children && children.length > 0) {
+        // @ts-ignore
+        group.addShape('text', {
+          attrs: {
+            textAlign: 'left',
+            textBaseline: 'top',
+            x: 8,
+            y: 8,
+            text: wrapString,
+            fontSize: 14,
+            cursor: 'pointer',
+            isNodeShape: true,
+            textColor: '#000',
+            fill: '#000'
+          }
+        })
+      }
+
+      if (children && children.length > 0 && depth !== 0) {
         // @ts-ignore
         group.addShape('path', {
           attrs: {
@@ -65,7 +102,7 @@ G6.registerNode(
             lineWidth: 2,
             endArrow: false
           },
-          name: 'path-aaaa'
+          name: 'path-branch'
         })
       }
 
@@ -90,7 +127,21 @@ G6.registerNode(
         }
       }
     },
-    getAnchorPoints: function getAnchorPoints() {
+    getAnchorPoints: function getAnchorPoints(cfg: any) {
+      console.log(cfg)
+      // @ts-ignore
+      const { depth } = cfg
+      if (depth === 0) {
+        return [
+          [0.2, 0.5],
+          [0.3, 0.5],
+          [0.4, 0.5],
+          [0.5, 0.5],
+          [0.6, 0.5],
+          [0.7, 0.5],
+          [0.8, 0.5]
+        ]
+      }
       return [
         [0, 0.5],
         [1, 0.5]
