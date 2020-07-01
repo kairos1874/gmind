@@ -15,7 +15,8 @@ G6.registerNode(
     },
     draw(cfg, group) {
       // @ts-ignore
-      const { nodeType, wrapString, lines, topicIndex } = cfg
+      const { nodeType, wrapString, lines, topicIndex, children } = cfg
+      debugger
       console.log(nodeType)
 
       // @ts-ignore
@@ -51,6 +52,22 @@ G6.registerNode(
           fill: '#000'
         }
       })
+
+      if (children && children.length > 0) {
+        // @ts-ignore
+        group.addShape('path', {
+          attrs: {
+            path: [
+              ['M', 180, (30 + (lines.length - 1) * 16) / 2],
+              ['L', 191, (30 + (lines.length - 1) * 16) / 2]
+            ],
+            stroke: colorPreset.get(topicIndex % 6),
+            lineWidth: 2,
+            endArrow: false
+          },
+          name: 'path-aaaa'
+        })
+      }
 
       return keyShape
     },
