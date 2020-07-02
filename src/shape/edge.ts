@@ -14,16 +14,6 @@ G6.registerEdge('curveline', {
       y: endPoint.y
     }
 
-    // const controlPoint2 = {
-    //   x: startPoint.x + ((endPoint.x - startPoint.x) / 3) * 2,
-    //   y: endPoint.y
-    // }
-
-    // const path = [
-    //   ['M', startPoint.x + 10, startPoint.y],
-    //   ['Q', controlPoint1.x, controlPoint1.y, endPoint.x, endPoint.y]
-    // ]
-
     const offset = endPoint.y - startPoint.y > 0 ? -2 : 2
     const lineStartWidth = depth === 0 ? 12 : 6
 
