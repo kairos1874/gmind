@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Gmind from './core/gmind'
-import baseData from './mock/baseData'
-// import baseData from './mock/data'
+// import baseData from './mock/baseData'
+import baseData from './mock/data'
 import mapTree from './util/mapTree'
 import { v4 as uuidv4 } from 'uuid'
 import getWrapString from './util/getWrapString'
@@ -34,8 +34,8 @@ export const Designer = () => {
 
     graph = new Gmind({
       container: 'gmind-designer',
-      width: 2500,
-      height: 1200,
+      width: 1500,
+      height: 700,
       modes: {
         default: [
           {
