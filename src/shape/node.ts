@@ -16,7 +16,6 @@ G6.registerNode(
     draw(cfg, group) {
       // @ts-ignore
       const { nodeType, wrapString, lines, topicIndex, children, depth } = cfg
-      console.log(nodeType)
 
       let keyShape: any
       if (depth === 0) {
@@ -128,7 +127,6 @@ G6.registerNode(
       }
     },
     getAnchorPoints: function getAnchorPoints(cfg: any) {
-      console.log(cfg)
       // @ts-ignore
       const { depth } = cfg
       if (depth === 0) {

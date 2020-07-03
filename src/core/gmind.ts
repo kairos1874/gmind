@@ -9,6 +9,6 @@ export default class Gmind extends G6.TreeGraph {
   }
 
   getData() {
-    console.log('hello world')
+    // console.log('hello world')
   }
 }
