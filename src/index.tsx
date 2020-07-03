@@ -20,22 +20,23 @@ export const Designer = () => {
   // const designerDom = designerRef.current
 
   function bindEvents() {
-    graph.on('nodeselectchange', (e: any) => {
-      const {
-        selectedItems: { nodes }
-      } = e
-      console.log(nodes[0])
-      debugger
-    })
+    // graph.on('nodeselectchange', (e: any) => {
+    //   const {
+    //     selectedItems: { nodes }
+    //   } = e
+    //   console.log(nodes[0])
+    //   debugger
+    // })
   }
 
   useEffect(() => {
     // @ts-ignore
-
     graph = new Gmind({
       container: 'gmind-designer',
-      width: 1500,
-      height: 700,
+      // @ts-ignore
+      width: designerRef.current.offsetWidth,
+      // @ts-ignore
+      height: designerRef.current.offsetHeight,
       modes: {
         default: [
           {

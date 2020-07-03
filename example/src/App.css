@@ -1,4 +1,10 @@
+.pageWrapper {
+  height: 100vh;
+  background: #f0f2f5;
+  padding: 24px;
+}
+
 .container {
-  padding: 20px;
-  height: 100Vh;
+  height: 100%;
+  background: #ffffff;
 }

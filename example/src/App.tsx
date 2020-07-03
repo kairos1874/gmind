@@ -6,7 +6,7 @@ import 'gmind/dist/index.css'
 
 const App = () => {
   return (
-    <div>
+    <div className="pageWrapper">
       <div className="container">
         <Designer />
       </div>
