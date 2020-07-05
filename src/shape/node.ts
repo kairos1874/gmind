@@ -15,7 +15,7 @@ G6.registerNode(
     },
     draw(cfg, group) {
       // @ts-ignore
-      const { nodeType, wrapString, lines, topicIndex, children, depth } = cfg
+      const { wrapString, lines, topicIndex, children, depth } = cfg
 
       let keyShape: any
       if (depth === 0) {

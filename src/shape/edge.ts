@@ -56,16 +56,5 @@ G6.registerEdge('curveline', {
         name: 'in-fan-shape'
       })
     }
-
-    // @ts-ignore
-    // return group.addShape('path', {
-    //   attrs: {
-    //     path,
-    //     stroke: colorPreset.get(targetModel.topicIndex % 6),
-    //     lineWidth: 2,
-    //     endArrow: false
-    //   },
-    //   name: 'path-shape'
-    // })
   }
 })

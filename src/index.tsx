@@ -1,23 +1,25 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, FC } from 'react'
 import Gmind from './core/gmind'
-// import baseData from './mock/baseData'
-import baseData from './mock/data'
-import mapTree from './util/mapTree'
 import { v4 as uuidv4 } from 'uuid'
 import getWrapString from './util/getWrapString'
+import mapTree from './util/mapTree'
+import { IViewerProps } from './interface'
 
+// styles
 import styles from './styles.module.css'
 import './style/tooltip.css'
 
-import './behavior/clickSelected'
+// import './behavior/clickSelected'
+// shape
 import './shape/node'
 import './shape/edge'
 
 let graph: any = null
 
-export const Designer = () => {
+const Viewer: FC<IViewerProps> = (props) => {
   const designerRef = useRef(null)
-  // const designerDom = designerRef.current
+  const { container, sourceData } = props
+  console.log(container)
 
   function bindEvents() {
     // graph.on('nodeselectchange', (e: any) => {
@@ -57,18 +59,18 @@ export const Designer = () => {
               fillOpacity: 0.2,
               lineWidth: 0.3
             }
-          }
+          },
           // 展开收起
-          // {
-          //   type: 'collapse-expand',
-          //   trigger: 'click',
-          //   onChange: (item, collapsed) => {
-          //     // @ts-ignore
-          //     const data = item.get('model').data
-          //     data.collapsed = collapsed
-          //     return true
-          //   }
-          // }
+          {
+            type: 'collapse-expand',
+            trigger: 'click',
+            onChange: (item, collapsed) => {
+              // @ts-ignore
+              const data = item.get('model').data
+              data.collapsed = collapsed
+              return true
+            }
+          }
         ]
       },
       defaultNode: {
@@ -83,12 +85,7 @@ export const Designer = () => {
       },
       layout: {
         type: 'mindmap',
-        direction: 'LR', // H / V / LR / RL / TB / BT
-        // 指定节点 ID
-        // getId: function getId() {
-        //   return uuidv4()
-        // },
-        // 指定节点高度
+        direction: 'LR',
         getHeight: function getHeight(d: { lines: any[] }) {
           if (d.lines.length > 0) {
             return 40 + (d.lines.length - 1) * 16
@@ -111,13 +108,12 @@ export const Designer = () => {
           if (depth === 0) {
             return 140
           }
-          // debugger
           return 100
         }
       }
     })
 
-    const targetData = mapTree(baseData, function (item: any) {
+    const targetData = mapTree(sourceData, function (item: any) {
       return {
         ...item,
         id: uuidv4(),
@@ -147,3 +143,5 @@ export const Designer = () => {
     />
   )
 }
+
+export { Viewer }
