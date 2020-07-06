@@ -1,6 +1,9 @@
 // 树形结构的 map 方法
-// @ts-ignore
-// import _get from 'lodash/get'
+
+import { v4 as uuidv4 } from 'uuid'
+import getWrapString from '../util/getWrapString'
+// eslint-disable-next-line no-unused-vars
+import { ISourceTreeData } from '../interface'
 
 function mapTree(
   treeData: any,
@@ -36,4 +39,18 @@ function mapTree(
   return target
 }
 
-export default mapTree
+function dressUpTree(sourceData: ISourceTreeData) {
+  return mapTree(sourceData, function (item: any) {
+    return {
+      ...item,
+      id: uuidv4(),
+      ...getWrapString(item.name, {
+        'font-size': '14px',
+        width: '160px',
+        'word-wrap': 'break-word'
+      })
+    }
+  })
+}
+
+export { mapTree, dressUpTree }

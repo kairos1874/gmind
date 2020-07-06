@@ -1,18 +1,10 @@
 import React, { useEffect, useRef, FC } from 'react'
 import Gmind from './core/gmind'
-import { v4 as uuidv4 } from 'uuid'
-import getWrapString from './util/getWrapString'
-import mapTree from './util/mapTree'
+import { dressUpTree } from './algorithm/tree'
 import { IViewerProps } from './interface'
 
 // styles
 import styles from './styles.module.css'
-import './style/tooltip.css'
-
-// import './behavior/clickSelected'
-// shape
-import './shape/node'
-import './shape/edge'
 
 let graph: any = null
 
@@ -41,17 +33,7 @@ const Viewer: FC<IViewerProps> = (props) => {
       height: designerRef.current.offsetHeight
     })
 
-    const targetData = mapTree(sourceData, function (item: any) {
-      return {
-        ...item,
-        id: uuidv4(),
-        ...getWrapString(item.name, {
-          'font-size': '14px',
-          width: '160px',
-          'word-wrap': 'break-word'
-        })
-      }
-    })
+    const targetData = dressUpTree(sourceData)
 
     graph.data(targetData)
     graph.render()
