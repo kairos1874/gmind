@@ -54,4 +54,6 @@ const Viewer: FC<IViewerProps> = (props) => {
   )
 }
 
-export { Viewer, Gmind }
+export { Viewer, dressUpTree }
+
+export default Gmind
