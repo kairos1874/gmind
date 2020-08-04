@@ -1,10 +1,9 @@
-// 树形结构的 map 方法
-
 import { v4 as uuidv4 } from 'uuid'
 import getWrapString from '../util/getWrapString'
 // eslint-disable-next-line no-unused-vars
 import { ISourceTreeData } from '../interface'
 
+// 树形结构的 map 方法
 function mapTree(
   treeData: any,
   mapCallback: any,

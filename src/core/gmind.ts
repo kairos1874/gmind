@@ -79,8 +79,4 @@ export default class Gmind extends G6.TreeGraph {
       ...cfg
     })
   }
-
-  getData() {
-    // console.log('hello world')
-  }
 }
